@@ -1,0 +1,70 @@
+CREATE TABLE genere (
+    id int AUTO_INCREMENT,
+    nome varchar(20),
+    PRIMARY KEY (id)
+ );
+ 
+CREATE TABLE serie (
+ id int AUTO_INCREMENT,
+    nome varchar(40),
+    tipo varchar(20),
+    trama varchar(1000),
+     rilascio varchar(20),
+     stato varchar(20),
+     voto varchar(20),
+     studio varchar(20),
+     commenti int,
+    durata varchar(20),
+    qualità varchar(20),
+    views int,
+    immagine varchar(400),
+    PRIMARY KEY (id)
+  
+);
+     
+
+ CREATE TABLE commento (
+     id int AUTO_INCREMENT,
+     commento varchar(300),
+     nome varchar(50),
+     data varchar(30),
+     fkSerie int,
+     PRIMARY KEY (id),
+     FOREIGN KEY (fkSerie) REFERENCES serie (id)
+     
+ );
+  CREATE TABLE fkdoppio (
+	fkSerie int,
+     fkGenere int,
+     PRIMARY KEY (fkSerie,fkGenere),
+     FOREIGN KEY (fkSerie) REFERENCES serie(id),
+     FOREIGN KEY (fkGenere) REFERENCES genere(id)
+ );
+
+CREATE TABLE registrati(
+    id int AUTO_INCREMENT,
+    nomeUtente varchar(40),
+    email varchar(50),
+    hash varchar(128),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE login(
+    id int AUTO_INCREMENT,
+    nomeUtente varchar(40),
+    email varchar(50),
+    hash varchar(128),
+    PRIMARY KEY (id)
+);
+CREATE TABLE episodi(
+    id int AUTO_INCREMENT,
+    numero int,
+    fkSerie int,
+    video varchar(200),
+    PRIMARY KEY (id),
+    FOREIGN KEY (fkSerie) REFERENCES serie(id)
+ );
+
+
+INSERIMENTO ANIME: 
+INSERT INTO `episodi` (`id`, `numero`, `fkSerie`, `video`) VALUES (NULL, '5', '23', 'videos/1.mp4'), (NULL, '5', '30', 'videos/1.mp4'), (NULL, '5', '4', 'videos/1.mp4'), (NULL, '5', '37', 'videos/1.mp4'), (NULL, '5', '5', 'videos/1.mp4'), (NULL, '5', '36', 'videos/1.mp4'), (NULL, '5', '34', 'videos/1.mp4'), (NULL, '5', '33', 'videos/1.mp4'), (NULL, '5', '35', 'videos/1.mp4'), (NULL, '5', '21', 'videos/1.mp4'), (NULL, '5', '19', 'videos/1.mp4'), (NULL, '5', '14', 'videos/1.mp4'), (NULL, '5', '32', 'videos/1.mp4'), (NULL, '5', '20', 'videos/1.mp4'), (NULL, '5', '6', 'videos/1.mp4'), (NULL, '5', '18', 'videos/1.mp4'), (NULL, '5', '24', 'videos/1.mp4'), (NULL, '5', '26', 'videos/1.mp4'), (NULL, '5', '27', 'videos/1.mp4'), (NULL, '5', '9', 'videos/1.mp4'), (NULL, '5', '7', 'videos/1.mp4'), (NULL, '5', '31', 'videos/1.mp4'), (NULL, '5', '13', 'videos/1.mp4'), (NULL, '5', '15', 'videos/1.mp4'), (NULL, '5', '1', 'videos/2.mp4'), (NULL, '5', '22', 'videos/1.mp4'), (NULL, '5', '25', 'videos/1.mp4'), (NULL, '5', '29', 'videos/1.mp4');
